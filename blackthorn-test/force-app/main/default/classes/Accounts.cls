@@ -22,18 +22,15 @@ public class Accounts extends fflib_SObjectDomain {
 		return (List<Account>) getRecords();
 	}
 
-    public Contact addContact(String firstName, String lastName, String email)
+    public List<Account> addAccount(fflib_SObjectUnitOfWork uow, String firstName)
 	{
-        Account account = new Account();
-        account.Name = firstName;
-        insert account;
-        Contact contact = new Contact();
-        contact.FirstName = firstName;
-        contact.LastName = lastName;
-        contact.Email = email;
-        contact.AccountId = account.Id;
-        insert contact;
-        return contact;
+        for(Account acc : (List<Account>) Records) {
+            acc.Name = firstName;
+            uow.registerNew(acc);
+
+        }
+        return Records;
+       
 	}
 
 }

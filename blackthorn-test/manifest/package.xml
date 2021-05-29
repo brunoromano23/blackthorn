@@ -19,7 +19,7 @@
         <name>Layout</name>
     </types>-->
     <types>
-        <members>EventSubscriptionTest</members>
+        <members>*</members>
         <name>ApexClass</name> 
     </types>
    <!-- <types>
