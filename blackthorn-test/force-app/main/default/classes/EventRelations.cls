@@ -14,7 +14,8 @@ public class EventRelations extends fflib_SObjectDomain {
             evt.IsInvitee = true;
             evt.IsWhat = false;
             evt.RelationId = contact.Id;
-            evt.IsParent = inviteAccepted;
+            evt.IsParent = false;
+            evt.Status = inviteAccepted ? 'Accepted' : 'Declined';
             uow.registerNew(evt, EventRelation.RelationId, contact);
         }
         return Records;
@@ -22,7 +23,7 @@ public class EventRelations extends fflib_SObjectDomain {
     public List<EventRelation> updateEventRelation(fflib_SObjectUnitOfWork uow, Boolean inviteAccepted)
 	{
         for(EventRelation evt : (List<EventRelation>) Records) {
-            evt.IsParent = inviteAccepted;
+			evt.Status = inviteAccepted ? 'Accepted' : 'Declined';
             uow.registerDirty(evt);
         }
         return Records;

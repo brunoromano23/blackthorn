@@ -16,8 +16,9 @@ public class EventsSelector extends fflib_SObjectSelector
     }
    
     public List<EventRelation> selectEventRelationsByEventAndContactId(Id eventID, Id contactId){
+
         List<EventRelation> whoRelations = [SELECT Id, Relation.Name, isParent, isinvitee, iswhat 
-                                            FROM EventRelation Where EventId =: eventID AND isParent = true AND isWhat = false
+                                            FROM EventRelation Where EventId =: eventID
                                            	AND RelationId =: contactId];
         return whoRelations;
     }

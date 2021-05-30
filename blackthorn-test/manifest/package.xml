@@ -19,14 +19,14 @@
         <name>Layout</name>
     </types>-->
     <types>
-        <members>EventController</members>
+        <members>*</members>
         <name>ApexClass</name> 
     </types>
-     <types>
+    <!-- <types>
         <members>eventsRelatedList</members>
         <name>LightningComponentBundle</name>
     </types>
-   <!-- <types>
+    <types>
         <members>*</members>
         <name>CustomLabel</name> 
     </types>-->

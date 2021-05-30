@@ -10,6 +10,7 @@ global with sharing class EventSubscription {
 			RequestEventSubscription eventRequest = (RequestEventSubscription)JSON.deserializeStrict(jSONRequestBody, RequestEventSubscription.class);
 
             Contact contact = RegisterAccountContact(uow, eventRequest);
+            system.debug('contact --> ' + contact);
 			Id eventRelationId = RegisterContactInEvent(uow, eventRequest, contact);
 			uow.commitWork();
    			response.eventId = eventRelationId;
@@ -40,6 +41,7 @@ global with sharing class EventSubscription {
     private static Id RegisterContactInEvent(fflib_SObjectUnitOfWork uow, RequestEventSubscription eventRequest, Contact contact){
         List<EventRelation> eventsRelations = new EventsSelector().selectEventRelationsByEventAndContactId(eventRequest.eventId, contact.Id);
         List<EventRelation> eventsRelationsSubscription = new List<EventRelation>();
+        system.debug('eventsRelations ==' + eventsRelations);
         if(eventsRelations.size() == 0){
             EventRelations domainEventRelation = new EventRelations(new List<EventRelation>{new EventRelation()});
             eventsRelationsSubscription = domainEventRelation.addEventRelation(uow, contact, eventRequest.eventId, eventRequest.inviteAccepted);
@@ -48,6 +50,7 @@ global with sharing class EventSubscription {
             EventRelations domainEventRelation = new EventRelations(eventsRelations);
             eventsRelationsSubscription = domainEventRelation.updateEventRelation(uow, eventRequest.inviteAccepted);
         }
+        system.debug('eventsRelationsSubscription --> ' + eventsRelationsSubscription);
         return eventsRelationsSubscription[0].Id;
     }
     
