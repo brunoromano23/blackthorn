@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <!--<types>
+    <types>
         <members>Account</members>
         <members>Event</members>
         <name>CustomObject</name>
@@ -17,39 +17,22 @@
         <members>Event-Event Layout</members>
         <members>Account-Account Layout</members>
         <name>Layout</name>
-    </types>-->
+    </types>
     <types>
         <members>*</members>
         <name>ApexClass</name> 
     </types>
-    <!-- <types>
+     <types>
         <members>eventsRelatedList</members>
         <name>LightningComponentBundle</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>CustomLabel</name> 
-    </types>-->
-    <!--<types>
-        <members>*</members>
-        <name>ApexPage</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexTestSuite</name>
     </types>
     <types>
         <members>*</members>
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>*</members>
-        <name>AuraDefinitionBundle</name>
+        <members>Attendees</members>
+        <name>FlexiPage</name>
     </types>
-   
-    <types>
-        <members>*</members>
-        <name>StaticResource</name>
-    </types>-->
     <version>51.0</version>
 </Package>
