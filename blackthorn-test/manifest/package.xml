@@ -3,7 +3,14 @@
     <types>
         <members>Account</members>
         <members>Event</members>
+        <members>Bonus__c</members>
+        <members>BonusPayout__c</members>
+
         <name>CustomObject</name>
+    </types>
+     <types>
+        <members>*</members>
+        <name>ApexTrigger</name>
     </types>
     <types>
         <members>ABCEvents</members>
